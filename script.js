@@ -6,7 +6,13 @@ const getButton = document.getElementById('btn');
 const getParagraph = document.getElementById('paragraph');
 
 const calculateIMC = (name, heigth, weight) => {
-  let IMC = weight / (heigth * heigth);
+  let correctHeigth = heigth;
+
+  if (heigth > 100) {
+    correctHeigth = heigth / 100;
+  }
+  
+  let IMC = weight / (correctHeigth * correctHeigth);
   let message;
 
   if (IMC < 18.5) {
